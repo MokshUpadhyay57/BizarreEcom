@@ -1,3 +1,7 @@
+Django-based e-commerce website with categories, user authentication, order tracking, and a streamlined search function. The project demonstrates my proficiency in developing robust web applications with a focus on user experience and functionality.
+
+
+
 ![image](https://github.com/MokshUpadhyay57/BizarreEcom/assets/68551326/f404cb05-3a8b-4802-9f62-ba5b7e51ba79)
 
 ![image](https://github.com/MokshUpadhyay57/BizarreEcom/assets/68551326/86964fd7-f56a-4355-b712-3763e389ef0d)
