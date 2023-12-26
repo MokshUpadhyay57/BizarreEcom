@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+{% block title %} Bizarre | Track Your Order {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="col my-4">
+        <h4>Enter your Order Id and Email to track your order</h4>
+        <form class="row g-3" method="post" action="#" id="trackerForm">{% csrf_token %}
+            <div class="col-md-6 mt-4">
+                <label for="inputname" class="form-label">Order Id</label>
+                <input type="text" class="form-control" id="orderId" name="orderId" placeholder="Order Id" />
+            </div>
+            <div class="col-md-6 mt-4">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="oemail" name="oemail" placeholder="Email" />
+            </div>
+            <div class="col-12 ">
+                <button type="submit" class="btn btn-outline-success my-2">Track Your Order</button>
+            </div>
+        </form>
+    </div>
+    <div class="col my-4">
+        <div class="my-4">
+        {% for update in update %}
+            <h3> Your Order Details : -</h3>
+            <ul class="list-group" id="citems">
+            <li class="list-group-item"><strong>Order Product: </strong> {{update.product}}</li>
+            <li class="list-group-item"><strong>Order Quantity: </strong>{{update.quantity}}</li>
+            <li class="list-group-item"><strong>Order Update: </strong>{{update.update_desc}}</li>
+            <li class="list-group-item"><strong>Order Time: </strong>{{update.timestamp}}</li>
+            <hr>
+                
+        </ul>
+        {% endfor %}
+    </div>
+
+    </div>
+</div>
+{% endblock %}

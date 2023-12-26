@@ -1,0 +1,43 @@
+{% extends 'app/base.html' %}
+{% block title %} BIZZARE | No - 1 Online Shopping Website {% endblock %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <h2 style="margin-top: 40px; margin-bottom: 20px;">Exciting Deals at Bizarre</h2>
+    {% for product in products|slice:"8:20" %}
+    <div class="col-lg-4">
+      <style>
+        .product {
+          border-radius: 0 0 4px 4px;
+        }
+
+
+        .box-element {
+          box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+          background-color: #fff;
+          border-radius: 4px;
+          justify-content: center;
+          padding: 10px;
+        }
+      </style>
+
+      <div class="box-element product">
+        <img class="thumbnail" src="/media/{{product.image}}"
+          style="width:100%; height: 250px; overflow: clip; margin-bottom: 10px;overflow: clip; margin-bottom: 10px;">
+        <h6><strong>{{product.product_name}}</strong></h6>
+        <p class="card-text">{{product.desc|slice:"0:53"}}...</p>
+        <hr>
+        {% if request.user.is_authenticated %}
+        <button data-product={{product.product_id}} data-action="add"
+          class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+        {% endif %}
+        <a class="btn btn-outline-success" href="{% url 'productview' product.id %}">View</a>
+        <h4 style=" float: right"><strong>Rs {{product.price|floatformat:2}}</strong></h4>
+      </div>
+      <br>
+    </div>
+    {% endfor %}
+  </div>
+  {% endblock %}

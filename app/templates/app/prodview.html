@@ -1,0 +1,26 @@
+{% extends "app/base.html" %}
+<title>{% block title %} {{product.product_name}} - Bizarre {% endblock %}</title>
+
+{% block content %}
+<div class="container my-4">
+  <div class="row align-items-center">
+    {% for product in product %}
+    <div class="col-md-4">
+      <div class="row">
+        <img src="/media/{{product.image}}" width="233px" height="385px">
+      </div>
+    </div>
+
+    <div class="col-md-8 ">
+      <h5>{{product.product_name}}</h5>
+      <p><b>Rs. {{product.price}}</b></p>
+      <p>{{product.desc}}</p>
+    </div>
+    <div class="d-grid gap-2 d-md-block">
+      <button class="btn btn-primary mx-5 my-5" type="button">Buy Now</button>
+      <button class="btn btn-primary" type="button">Add to Cart</button>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

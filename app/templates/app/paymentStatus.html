@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% block title %} Checkout - Bizzare {% endblock%}
+{% block body %}
+
+<div class="container">
+    <div class="col my-4">
+        <h3>Payment Status Regarding order Id {{response.ORDERID}}</h3>
+        {% if response.RESPCODE == '01' %}
+        <br/>
+        <h4 class="py-2"> Your Paymeny Summary - </h4>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Order Id: </strong>{{response.ORDERID}}</li>
+            <li class="list-group-item"><strong>Transaction Id: </strong>{{response.TXNID}}</li>
+            <li class="list-group-item"><strong>Payment Mode: </strong>{{response.PAYMENTMODE}}</li>
+            <li class="list-group-item"><strong>Amount: </strong>{{response.TXNAMOUNT}}</li>
+            <li class="list-group-item"><strong>Bank Name: </strong>{{response.BANKNAME}}</li>
+        </ul>
+        {% else %}
+        ORDER FAILURE
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
